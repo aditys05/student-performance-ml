@@ -1,13 +1,20 @@
-# Student Score Prediction
+# Student Performance Prediction (ML Project)
 
-Beginner Machine Learning project using TensorFlow.
+This is a simple Machine Learning project built while learning TensorFlow.
 
-## Project Structure
-- data/ → dataset
-- src/ → training & prediction scripts
-- models/ → saved ML models
+The model predicts a student’s final score based on:
+- hours studied
+- attendance
+- previous score
 
-## How to Run
+This project helped me understand:
+- how ML models are trained
+- how to save and reuse a model
+- basic project structure
+- using TensorFlow with GPU (WSL2)
+
+## How to run
 ```bash
 pip install -r requirements.txt
 python src/train.py
+python src/predict.py
