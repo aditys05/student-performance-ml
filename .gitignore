@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# OS / Editor
+.vscode/
+.DS_Store
+
+# Logs
+*.log
+
+# Editor swap files
+*.swp
+*.swp
+*.save
+

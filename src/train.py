@@ -1,5 +1,8 @@
 import tensorflow as tf
 import pandas as pd 
+from sklearn.preprocessing import MinMaxScaler
+import joblib
+
 
 gpus = tf.config.list_physical_devices('GPU')
 if gpus:
@@ -9,9 +12,12 @@ if gpus:
 #for loading data
 data = pd.read_csv("data/data.csv")
 
-x = data[["hours", "attendance", "prev_score"]]
+x = data[["hours", "attendance", "prev_score"]].values
 
-y = data["final_score"]
+y = data["final_score"].values
+
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(x)
 
 #the model
 model = tf.keras.Sequential([
@@ -27,11 +33,11 @@ model.compile(
 )
 
 #training the model
-model.fit(x,y, epochs=200, verbose=0)
+model.fit(X_scaled,y, epochs=200, verbose=0)
 
 #saving the model
 model.save("model/student_model.keras")
-
+joblib.dump(scaler, "model/scaler.pkl")
 print("Model trained and saved successfully.")
 
 

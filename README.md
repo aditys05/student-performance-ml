@@ -18,3 +18,7 @@ This project helped me understand:
 pip install -r requirements.txt
 python src/train.py
 python src/predict.py
+
+## Updates
+- Added feature normalization for more stable predictions
+- Saved and reused scaler during prediction
